@@ -32,8 +32,6 @@ public class Main extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        txtSegundoNombre = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txtApellidoPaterno = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -61,16 +59,13 @@ public class Main extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Franklin Gothic Book", 1, 14)); // NOI18N
-        jLabel1.setText("Nombre ");
+        jLabel1.setText("Nombre (s)");
 
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNombreActionPerformed(evt);
             }
         });
-
-        jLabel2.setFont(new java.awt.Font("Franklin Gothic Book", 1, 14)); // NOI18N
-        jLabel2.setText("Segundo Nombre (Opcional)");
 
         jLabel3.setFont(new java.awt.Font("Franklin Gothic Book", 1, 14)); // NOI18N
         jLabel3.setText("Apellido Paterno");
@@ -158,20 +153,17 @@ public class Main extends javax.swing.JFrame {
                                             .addComponent(txtAño, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addGap(153, 153, 153)
                                 .addComponent(cbxSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(txtApellidoPaterno, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtNombre, javax.swing.GroupLayout.Alignment.LEADING))
-                                    .addComponent(jLabel3))
-                                .addGap(81, 81, 81)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel2)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(txtApellidoMaterno, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                                        .addComponent(txtSegundoNombre, javax.swing.GroupLayout.Alignment.LEADING)))))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(txtNombre, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtApellidoPaterno, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel1)
+                                        .addComponent(jLabel3))
+                                    .addGap(81, 81, 81)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel4)
+                                        .addComponent(txtApellidoMaterno, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addContainerGap(225, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel5)
@@ -201,13 +193,9 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(jLabel13))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(20, 20, 20)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
+                        .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtSegundoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(27, 27, 27)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
@@ -273,12 +261,16 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_txtMesActionPerformed
 
     private void btnGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarActionPerformed
-       String sexo = (String) cbxSexo.getSelectedItem();
+       String nombre = txtNombre.getText();
+       String apellidoPaterno = txtApellidoPaterno.getText();
+       String apellidoMaterno = txtApellidoMaterno.getText();
+        String sexo = (String) cbxSexo.getSelectedItem();
        String dia = txtDias.getText();
        String mes = txtMes.getText();
        String año = txtAño.getText();
-       Conversion operacion = new Conversion();
-        lblCurp.setText(Conversion.obtenerSexo(sexo));
+        lblCurp.setText(Conversion.clavePaterno(apellidoPaterno)+Conversion.primerLetraApellidoMaterno(apellidoMaterno)+ Conversion.obtenerSexo(sexo)+
+        Conversion.primeraConsonanteApellidoPaterno(apellidoPaterno)+Conversion.primerConsonanteApellidoMaterno(apellidoMaterno)
+        );
         
     }//GEN-LAST:event_btnGenerarActionPerformed
 
@@ -326,7 +318,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -342,6 +333,5 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField txtDias;
     private javax.swing.JTextField txtMes;
     private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtSegundoNombre;
     // End of variables declaration//GEN-END:variables
 }
