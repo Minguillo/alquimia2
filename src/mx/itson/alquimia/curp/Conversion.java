@@ -71,19 +71,29 @@ public class Conversion {
     
     public static char primerLetraNombre(String nombre){
         nombre = nombre.toUpperCase().trim();
-        if(nombre.equals("JOSE")){
-            String[] partes = nombre.split(" ");
-            
-            
-            
-        }
-        else{
-         nombre = nombre.toUpperCase().trim();
+        String primerLetra;
+        char trozo;
         
-        return nombre.charAt(0);   
+        if(nombre.contains("JOSE")){
+            String[] partes = nombre.split(" ");
+            primerLetra = partes[1].substring(0,1);
+            trozo = primerLetra.charAt(0);
+            return trozo;
         }
-        return ' ';
+        else if(nombre.contains("MARIA")){
+            String[] partes = nombre.split(" ");
+            primerLetra = partes[1].substring(0,1);
+            trozo = primerLetra.charAt(0); 
+        }
+           
+          return ' ';  
     }
+    
+    public static String obtenerAño(String año){
+       return año.substring(2,4);
+       
+    }
+    
     
     
     public void obtenerFechaNacimiento(String mes){
@@ -119,6 +129,36 @@ public class Conversion {
        
     }
     
+    public void obtenerDia(String dia){
+        String digitodia = "";
+       if(dia.equals('1')){
+           digitodia =  "01";
+       }             
+       else if (dia.equals('2')){
+           digitodia = "02";
+       }
+       else if (dia.equals('3')){
+           digitodia = "03";
+       }
+       else if (dia.equals('4')){
+           digitodia = "04";
+       }
+       else if (dia.equals('5')){
+           digitodia = "05";
+       }
+       else if (dia.equals('6')){
+           digitodia = "06";
+       }
+       else if (dia.equals('7')){
+           digitodia = "07";
+       }
+       else if (dia.equals('8')){
+           digitodia = "08";
+       }
+       else if (dia.equals('9')){
+           digitodia = "09";
+       }
+       }
     public static String obtenerSexo(String sexo){
         switch (sexo){
             case "Hombre":
