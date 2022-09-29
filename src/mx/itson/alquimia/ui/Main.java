@@ -75,8 +75,20 @@ public class Main extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Franklin Gothic Book", 1, 14)); // NOI18N
         jLabel3.setText("Apellido Paterno");
 
+        txtApellidoPaterno.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtApellidoPaternoKeyTyped(evt);
+            }
+        });
+
         jLabel4.setFont(new java.awt.Font("Franklin Gothic Book", 1, 14)); // NOI18N
         jLabel4.setText("Apellido Materno");
+
+        txtApellidoMaterno.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtApellidoMaternoKeyTyped(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Franklin Gothic Book", 1, 14)); // NOI18N
         jLabel5.setText("Fecha de Nacimiento");
@@ -103,9 +115,20 @@ public class Main extends javax.swing.JFrame {
                 txtMesActionPerformed(evt);
             }
         });
+        txtMes.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtMesKeyTyped(evt);
+            }
+        });
 
         jLabel8.setFont(new java.awt.Font("Franklin Gothic Book", 1, 12)); // NOI18N
         jLabel8.setText("Año");
+
+        txtAño.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtAñoKeyTyped(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("Franklin Gothic Book", 1, 14)); // NOI18N
         jLabel9.setText("Sexo");
@@ -278,13 +301,14 @@ public class Main extends javax.swing.JFrame {
        String dia = txtDias.getText();
        String mes = txtMes.getText();
        String año = txtAño.getText();
-        lblCurp.setText(Conversion.clavePaterno(apellidoPaterno)+Conversion.primerLetraApellidoMaterno(apellidoMaterno)+ Conversion.obtenerSexo(sexo)+
+        lblCurp.setText(Conversion.clavePaterno(apellidoPaterno)+Conversion.primerLetraApellidoMaterno(apellidoMaterno)+Conversion.primerLetraNombre(nombre)+ Conversion.obtenerSexo(sexo)+
         Conversion.primeraConsonanteApellidoPaterno(apellidoPaterno)+Conversion.primerConsonanteApellidoMaterno(apellidoMaterno)
-        );
+        +Conversion.primerConsonanteNombre(nombre));
         
     }//GEN-LAST:event_btnGenerarActionPerformed
 
     private void txtDiasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDiasKeyTyped
+        // Este metodo es para que nomas pueda agarrar los numero y limita los numero que puedes ingresar
         int key = evt.getKeyChar();
         
         boolean numeros = key >=48 && key <= 57;
@@ -300,6 +324,8 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDiasKeyTyped
 
     private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
+        // Este metodo es para que nomas pueda agarrar las letras  
+         
         int key = evt.getKeyChar();
         
         boolean mayusculas = key >= 65 && key <=90;
@@ -311,6 +337,62 @@ public class Main extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_txtNombreKeyTyped
+
+    private void txtApellidoPaternoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidoPaternoKeyTyped
+        // Este metodo es para que nomas pueda agarrar las letras
+        int key = evt.getKeyChar();
+        
+        boolean mayusculas = key >= 65 && key <=90;
+        boolean minusculas = key >= 97 && key <= 122;
+        boolean espacio = key == 32;
+        
+        if(!(minusculas || mayusculas || espacio)){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtApellidoPaternoKeyTyped
+
+    private void txtApellidoMaternoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidoMaternoKeyTyped
+        // Este metodo es para que nomas pueda agarrar las letras
+        int key = evt.getKeyChar();
+        
+        boolean mayusculas = key >= 65 && key <=90;
+        boolean minusculas = key >= 97 && key <= 122;
+        boolean espacio = key == 32;
+        
+        if(!(minusculas || mayusculas || espacio)){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtApellidoMaternoKeyTyped
+
+    private void txtMesKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMesKeyTyped
+       // Este metodo es para que nomas pueda agarrar los numero y limita los numero que puedes ingresar
+        int key = evt.getKeyChar();
+        
+        boolean numeros = key >=48 && key <= 57;
+        if(!numeros){ 
+            evt.consume();
+        }
+        
+        
+        if(txtMes.getText().length() >=2){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtMesKeyTyped
+
+    private void txtAñoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAñoKeyTyped
+        // Este metodo es para que nomas pueda agarrar los numero y limita los numero que puedes ingresar
+        int key = evt.getKeyChar();
+        
+        boolean numeros = key >=48 && key <= 57;
+        if(!numeros){ 
+            evt.consume();
+        }
+        
+        
+        if(txtAño.getText().length() >=4){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtAñoKeyTyped
 
     /**
      * @param args the command line arguments

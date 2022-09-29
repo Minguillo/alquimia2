@@ -68,6 +68,24 @@ public class Conversion {
        }
         
     }
+    
+    public static char primerLetraNombre(String nombre){
+        nombre = nombre.toUpperCase().trim();
+        if(nombre.equals("JOSE")){
+            String[] partes = nombre.split(" ");
+            
+            
+            
+        }
+        else{
+         nombre = nombre.toUpperCase().trim();
+        
+        return nombre.charAt(0);   
+        }
+        return ' ';
+    }
+    
+    
     public void obtenerFechaNacimiento(String mes){
         String digitoMes = "";
        if(mes.equals("1")){
@@ -146,5 +164,15 @@ public class Conversion {
        return ' ';
     }
     
+    public static char primerConsonanteNombre(String nombre){
+        String primerConsonante = nombre.toUpperCase().trim();
+        String consonantes = "BCDFGHJKLMNÑPQRSTVXZWY";
+        
+        for(int i = 1; i < primerConsonante.length(); i++){
+            if(consonantes.contains(String.valueOf(primerConsonante.charAt(i))))
+                return primerConsonante.charAt(i);
+        }
+        return ' ';
+    }
     
 }
