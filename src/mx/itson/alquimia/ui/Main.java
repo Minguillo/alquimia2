@@ -231,9 +231,9 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(txtApellidoPaterno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtApellidoMaterno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel9))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbxSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -296,7 +296,7 @@ public class Main extends javax.swing.JFrame {
         +Conversion.primerLetraNombre(nombre)+Conversion.obtenerAño(año)
         +Conversion.obtenerFechaNacimiento(mes)+Conversion.obtenerDia(dia)+Conversion.obtenerSexo(sexo)+
         Conversion.obtenerEntidad(entidad)+Conversion.primeraConsonanteApellidoPaterno(apellidoPaterno)
-        +Conversion.primerConsonanteApellidoMaterno(apellidoMaterno)+"1"
+        +Conversion.primerConsonanteApellidoMaterno(apellidoMaterno)+Conversion.digitoAño(año)+"1"
         );   
        }
        catch(Exception e){
