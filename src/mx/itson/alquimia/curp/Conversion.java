@@ -16,7 +16,7 @@ public class Conversion {
      * @return La primera letra del apellido paterno
      */
     public static char primerLetraPaterno(String apellidoPaterno){
-        
+            apellidoPaterno = apellidoPaterno.toUpperCase().trim();
             return apellidoPaterno.charAt(0);
     }
     
@@ -58,7 +58,9 @@ public class Conversion {
      * @return retorna x si el apellido materno esta vacio o la primera letra del apellido materno
      */
     public static char primerLetraApellidoMaterno(String apellidoMaterno){
-       if(apellidoMaterno.equals("")){
+       apellidoMaterno = apellidoMaterno.toUpperCase().trim();
+        
+        if(apellidoMaterno.equals("")){
            return 'X';
        }
        else{
@@ -68,41 +70,32 @@ public class Conversion {
     }
     public void obtenerFechaNacimiento(String mes){
         String digitoMes = "";
-       if(mes.equals("enero")){
+       if(mes.equals("1")){
            digitoMes =  "01";
        }             
-       else if (mes.equals("febrero")){
+       else if (mes.equals('2')){
            digitoMes = "02";
        }
-       else if (mes.equals("marzo")){
+       else if (mes.equals('3')){
            digitoMes = "03";
        }
-       else if (mes.equals("abril")){
+       else if (mes.equals('4')){
            digitoMes = "04";
        }
-       else if (mes.equals("mayo")){
+       else if (mes.equals('5')){
            digitoMes = "05";
        }
-       else if (mes.equals("junio")){
+       else if (mes.equals('6')){
            digitoMes = "06";
        }
-       else if (mes.equals("julio")){
+       else if (mes.equals('7')){
            digitoMes = "07";
        }
-       else if (mes.equals("agosto")){
+       else if (mes.equals('8')){
            digitoMes = "08";
        }
-       else if (mes.equals("septiembre")){
+       else if (mes.equals('9')){
            digitoMes = "09";
-       }
-       else if (mes.equals("octubre")){
-           digitoMes = "10";
-       }
-       else if (mes.equals("noviembre")){
-           digitoMes = "11";
-       }
-       else if (mes.equals("diciembre")){
-           digitoMes = "12";
        }
        
        

@@ -66,6 +66,11 @@ public class Main extends javax.swing.JFrame {
                 txtNombreActionPerformed(evt);
             }
         });
+        txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNombreKeyTyped(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Franklin Gothic Book", 1, 14)); // NOI18N
         jLabel3.setText("Apellido Paterno");
@@ -82,6 +87,11 @@ public class Main extends javax.swing.JFrame {
         txtDias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDiasActionPerformed(evt);
+            }
+        });
+        txtDias.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDiasKeyTyped(evt);
             }
         });
 
@@ -264,7 +274,7 @@ public class Main extends javax.swing.JFrame {
        String nombre = txtNombre.getText();
        String apellidoPaterno = txtApellidoPaterno.getText();
        String apellidoMaterno = txtApellidoMaterno.getText();
-        String sexo = (String) cbxSexo.getSelectedItem();
+       String sexo = (String) cbxSexo.getSelectedItem();
        String dia = txtDias.getText();
        String mes = txtMes.getText();
        String año = txtAño.getText();
@@ -273,6 +283,34 @@ public class Main extends javax.swing.JFrame {
         );
         
     }//GEN-LAST:event_btnGenerarActionPerformed
+
+    private void txtDiasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDiasKeyTyped
+        int key = evt.getKeyChar();
+        
+        boolean numeros = key >=48 && key <= 57;
+        if(!numeros){ 
+            evt.consume();
+        }
+        
+        
+        if(txtDias.getText().length() >=2){
+            evt.consume();
+        }
+       
+    }//GEN-LAST:event_txtDiasKeyTyped
+
+    private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
+        int key = evt.getKeyChar();
+        
+        boolean mayusculas = key >= 65 && key <=90;
+        boolean minusculas = key >= 97 && key <= 122;
+        boolean espacio = key == 32;
+        
+        if(!(minusculas || mayusculas || espacio)){
+            evt.consume();
+        }
+        
+    }//GEN-LAST:event_txtNombreKeyTyped
 
     /**
      * @param args the command line arguments
