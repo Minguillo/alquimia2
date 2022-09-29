@@ -97,35 +97,33 @@ public class Conversion {
     
     
     
-    public void obtenerFechaNacimiento(String mes){
-        String digitoMes = "";
-       if(mes.equals("1")){
-           digitoMes =  "01";
-       }             
-       else if (mes.equals('2')){
-           digitoMes = "02";
-       }
-       else if (mes.equals('3')){
-           digitoMes = "03";
-       }
-       else if (mes.equals('4')){
-           digitoMes = "04";
-       }
-       else if (mes.equals('5')){
-           digitoMes = "05";
-       }
-       else if (mes.equals('6')){
-           digitoMes = "06";
-       }
-       else if (mes.equals('7')){
-           digitoMes = "07";
-       }
-       else if (mes.equals('8')){
-           digitoMes = "08";
-       }
-       else if (mes.equals('9')){
-           digitoMes = "09";
-       }
+    public static String obtenerFechaNacimiento(String mes){
+        
+       switch (mes){
+          case "1":
+                    return "01";
+                    
+          case "2":
+                    return "02";
+                    
+          case "3":
+                    return "03";
+          
+          case "4":
+                    return"04";
+          case "5":
+                    return "05";
+          case "6":
+                    return "06";
+          case "7":
+              return "07";
+          case "8":
+              return "08";
+          case "9":
+              return "09";
+          default:
+              return "";
+       }  
        
        
     }
@@ -159,7 +157,9 @@ public class Conversion {
        else if (dia.equals('9')){
            digitodia = "09";
        }
-       }
+    }
+    
+    
     public static String obtenerSexo(String sexo){
         switch (sexo){
             case "Hombre":
