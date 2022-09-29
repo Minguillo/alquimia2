@@ -12,7 +12,7 @@ public class Conversion {
    
     
         /**
-         * 
+         * Agarra la primer letra del apellido
          * @param apellidoPaterno es el apellido que ingreso en la caja de texto
          * @return La primera letra del apellido paterno
          */
@@ -22,7 +22,7 @@ public class Conversion {
         }
 
         /**
-         * 
+         * Agarra la primera vocal interna del apellido
          * @param apellidoPaterno es el apellido que ingreso en la caja de texto
          * @return La primera Vocal Interna del apellido paterno
          */
@@ -41,7 +41,7 @@ public class Conversion {
 
         }
         /**
-         * 
+         * Se unen la primera letra del apellido y la primer vocal interna del mismo
          * @param apellidoPaterno es el apellido que ingreso en la caja de texto
          * @return La union de la primera letra y la primera vocal del apellido paterno
          */
@@ -54,7 +54,7 @@ public class Conversion {
         }
 
         /**
-         * 
+         * Agarra la primer letra del segundo apellido
          * @param apellidoMaterno es el apellido que ingreso en la caja de texto
          * @return retorna x si el apellido materno esta vacio o la primera letra del apellido materno
          */
@@ -69,7 +69,12 @@ public class Conversion {
            }
 
         }
-
+        
+        /**
+         * Agarra la primera letra del nombre 
+         * @param nombre Es el nombre que ingreso en la caja de texto
+         * @return retorna la primera letra del nombre
+         */
         public static char primerLetraNombre(String nombre){
             nombre = nombre.toUpperCase().trim();
             String primerLetra;
@@ -90,14 +95,22 @@ public class Conversion {
                 return nombre.charAt(0);
             } 
         }
-
+        
+        /**
+         * Agarra los ultimos 2 digitos del año
+         * @param año Es el año que ingreso en la caja de texto
+         * @return Retorna los ultimos 2 digitos del año
+         */
         public static String obtenerAño(String año){
            return año.substring(2,4);
 
         }
-
-
-
+        
+        /**
+         * Agarra el numero de mes que ingreso en la caja de texto
+         * @param mes es el mes que ingreso en la caja de texto
+         * @return retorna el numero en 2 digitos del mes 
+         */
         public static String obtenerFechaNacimiento(String mes){
             int meses = Integer.parseInt(mes);
 
@@ -134,7 +147,12 @@ public class Conversion {
 
 
         }
-
+        
+        /**
+         * Agarra el numero de dia que ingreso en la caja de texto
+         * @param dia es el dia que ingreso en la caja de texto
+         * @return Retorna el dia en 2 digitos 
+         */
         public static String obtenerDia(String dia){
            if(dia.equals("1")){
                return "01";
@@ -167,8 +185,12 @@ public class Conversion {
                return dia;
            }
         }
-
-
+        
+        /**
+         * Agarra el valor del sexo que se ingresa en la combo box
+         * @param sexo es el valor que se elige en la combo box
+         * @return Retorna el valor abreviado del sexo 
+         */
         public static String obtenerSexo(String sexo){
             switch (sexo){
                 case "Hombre":
@@ -178,7 +200,12 @@ public class Conversion {
 
             }
         } 
-
+        
+        /**
+         * Agarra la clave de la entidad federativa
+         * @param entidad son las entidades federativas 
+         * @return Las claves de las entidades federativas
+         */
         public static String obtenerEntidad(String entidad){
           switch (entidad){
               case "Aguas Calientes":
@@ -273,7 +300,12 @@ public class Conversion {
             }
             return ' ';
         }
-
+        
+        /**
+         * Agarra la primera consonante no principal del segundo apellido
+         * @param apellidoMaterno Es el segundo apellido que ingreso en la caja de texto
+         * @return Retorna la consonante del segundo apellido o si no tiene retorna una X
+         */
         public static char primerConsonanteApellidoMaterno(String apellidoMaterno){
             String primerConsonante = apellidoMaterno.toUpperCase().trim();
             String consonantes = "BCDFGHJKLMNÑPQRSTVXZWY";
@@ -290,7 +322,12 @@ public class Conversion {
             }
            return ' ';
         }
-
+        
+        /**
+         * Agarra la primera consonante no principal del nombre
+         * @param nombre Es el nombre que ingreso en la caja de texto
+         * @return Agarra la primera consonante no principal del nombre
+         */
         public static char primerConsonanteNombre(String nombre){
             String primerConsonante = nombre.toUpperCase().trim();
             String consonantes = "BCDFGHJKLMNÑPQRSTVXZWY";
@@ -301,7 +338,12 @@ public class Conversion {
             }
             return ' ';
         }
-
+        
+        /**
+         * Agrega un valor dependiendo del año en que nacio
+         * @param año Es el año que ingreso en la caja de texto
+         * @return Retorna un valor dependiendo del año en el que ingreso
+         */
         public static char digitoAño (String año){
             int años = Integer.parseInt(año);
             if(años < 1999){
