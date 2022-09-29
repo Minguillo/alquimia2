@@ -73,20 +73,21 @@ public class Conversion {
         nombre = nombre.toUpperCase().trim();
         String primerLetra;
         char trozo;
-        
-        if(nombre.contains("JOSE")){
-            String[] partes = nombre.split(" ");
+        String[] partes = nombre.split(" ");
+        if(partes[0].contains("JOSE")){
             primerLetra = partes[1].substring(0,1);
             trozo = primerLetra.charAt(0);
             return trozo;
         }
-        else if(nombre.contains("MARIA")){
-            String[] partes = nombre.split(" ");
+        else if(partes[0].contains("MARIA")){
             primerLetra = partes[1].substring(0,1);
             trozo = primerLetra.charAt(0); 
+            return trozo;
         }
-           
-          return ' ';  
+        else{
+            nombre = nombre.toUpperCase().trim();
+            return nombre.charAt(0);
+        } 
     }
     
     public static String obtenerAño(String año){
@@ -213,6 +214,16 @@ public class Conversion {
                 return primerConsonante.charAt(i);
         }
         return ' ';
+    }
+    
+    public static char digitoAño (String año){
+        int años = Integer.parseInt(año);
+        if(años < 1999){
+            return '0';
+        }
+        else{
+            return 'A';
+        }
     }
     
 }
