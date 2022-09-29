@@ -307,13 +307,12 @@ public class Main extends javax.swing.JFrame {
        String dia = txtDias.getText();
        String mes = txtMes.getText();
        String año = txtAño.getText();
-        lblCurp.setText(Conversion.clavePaterno(apellidoPaterno)+Conversion.primerLetraApellidoMaterno(apellidoMaterno)+Conversion.primerLetraNombre(nombre)+Conversion.obtenerAño(año)+mes+dia+Conversion.obtenerSexo(sexo)+
-
-        Conversion.obtenerEntidad(entidad)+Conversion.primeraConsonanteApellidoPaterno(apellidoPaterno)+Conversion.primerConsonanteApellidoMaterno(apellidoMaterno)
+        lblCurp.setText(Conversion.clavePaterno(apellidoPaterno)+Conversion.primerLetraApellidoMaterno(apellidoMaterno)
+        +Conversion.primerLetraNombre(nombre)+Conversion.obtenerAño(año)
+        +mes+dia+Conversion.obtenerSexo(sexo)+
+        Conversion.obtenerEntidad(entidad)+Conversion.primeraConsonanteApellidoPaterno(apellidoPaterno)
+        +Conversion.primerConsonanteApellidoMaterno(apellidoMaterno)+"1"
         );
-
-        Conversion.primeraConsonanteApellidoPaterno(apellidoPaterno)+Conversion.primerConsonanteApellidoMaterno(apellidoMaterno)
-        +Conversion.primerConsonanteNombre(nombre)+Conversion.digitoAño(año));
 
         
         
