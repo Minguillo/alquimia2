@@ -144,6 +144,11 @@ public class Main extends javax.swing.JFrame {
         jLabel10.setText("Entidad Federativa");
 
         cbxEntidades.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aguas Calientes", "Baja California", "Baja California Sur", "Campeche", "Coahuila de Zaragoza", "Colima", "Chiapas", "Chihuahua", "Distrito Federal", "Guanajuato", "Guerrero", "Hidalgo", "Jalisco", "Mexico", "Michoacan de Ocampo", "Morelos", "Nayarit", "Nuevo Leon", "Oaxaca", "Puebla", "Queretaro", "Quintana Roo", "San Luis Potosi", "Sinaloa", "Sonora", "Tabasco", "Tamaulipas", "Tlaxcala", "Veracruz de Ignacio de la Llave", "Yucatan", "Zacatecas", "Nacido en el Extranjero" }));
+        cbxEntidades.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxEntidadesActionPerformed(evt);
+            }
+        });
 
         btnGenerar.setFont(new java.awt.Font("Franklin Gothic Book", 1, 14)); // NOI18N
         btnGenerar.setText("Generar");
@@ -298,12 +303,14 @@ public class Main extends javax.swing.JFrame {
        String apellidoPaterno = txtApellidoPaterno.getText();
        String apellidoMaterno = txtApellidoMaterno.getText();
        String sexo = (String) cbxSexo.getSelectedItem();
+       String entidad = (String) cbxEntidades.getSelectedItem();
        String dia = txtDias.getText();
        String mes = txtMes.getText();
        String año = txtAño.getText();
         lblCurp.setText(Conversion.clavePaterno(apellidoPaterno)+Conversion.primerLetraApellidoMaterno(apellidoMaterno)+Conversion.primerLetraNombre(nombre)+Conversion.obtenerAño(año)+mes+dia+Conversion.obtenerSexo(sexo)+
-        Conversion.primeraConsonanteApellidoPaterno(apellidoPaterno)+Conversion.primerConsonanteApellidoMaterno(apellidoMaterno)
+        Conversion.obtenerEntidad(entidad)+Conversion.primeraConsonanteApellidoPaterno(apellidoPaterno)+Conversion.primerConsonanteApellidoMaterno(apellidoMaterno)
         );
+        
         
     }//GEN-LAST:event_btnGenerarActionPerformed
 
@@ -393,6 +400,11 @@ public class Main extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_txtAñoKeyTyped
+
+    private void cbxEntidadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxEntidadesActionPerformed
+        
+        
+    }//GEN-LAST:event_cbxEntidadesActionPerformed
 
     /**
      * @param args the command line arguments

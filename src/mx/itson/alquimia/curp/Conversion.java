@@ -167,8 +167,92 @@ public class Conversion {
                 return "M";
                     
         }
-      
     } 
+    
+    public static String obtenerEntidad(String entidad){
+      switch (entidad){
+          case "Aguas Calientes":
+                    return "AS";
+                    
+          case "Baja California":
+                    return "BC";
+                    
+          case "Baja California Sur":
+                    return "BS";
+          
+          case "Campeche":
+                    return "CC";
+          case "Coahuila de Zaragoza":
+                    return "CL";
+          case "Colima":
+                    return "CM";
+          case "Chiapas":
+                    return "CS";
+          case "Chihuahua":
+                    return "CH";
+          case "Distrito Federal":
+                    return "DF";
+          case "Durango":
+                    return "DG";
+          case "Guajanto":
+                    return "GT";  
+          case "Guerrero":
+                    return "GR";
+          case "Hidalgo":
+                    return "HG";
+          case "Jalisco":
+                    return "JC";
+          case "Mexico":
+                    return "MC";
+          case "Michoacan de Ocampo":
+                    return "MN";
+          case "Morelos":
+                    return "MS";
+          case "Nayarit":
+                    return "NT";
+          case "Nuevo Leon":
+                    return "NL";
+          case "Oaxaca":
+                    return "OC";
+          case "Puebla":
+                    return "PL";
+          case "Queretaro":
+                    return "QT";
+          case "Quintana Roo":
+                    return "QR";
+          case "San Luis Potosi":
+                    return "SP";
+          case "Sinaloa":
+                    return "SL";
+          case "Sonora":
+                    return "SR";
+          case "Tabasco":
+                    return "TC";
+          case "Tamaulipas":
+                    return "TS";
+          case "Tlaxcala":
+                    return "TL";
+          case "Veracruz de Ignacio de la Llave":
+                    return "VZ";
+          case "Yucatan":
+                    return "YN";
+          case "Zacatecas":
+                    return "ZS";
+          case "Nacido en el Extranjero":
+                    return "NE";
+          default:
+                    return "";
+                    
+               
+                    
+                    
+      }
+       
+      
+              
+    }
+        
+                    
     
     /**
      * 
